@@ -1,0 +1,67 @@
+(1) Import Libraries:
+
+a. OpenCV: For image processing tasks.
+b. NumPy: For numerical operations and handling arrays.
+c. winsound: For playing sound alerts.
+
+
+
+(2) Initialize Video Capture:
+
+a. Use the default camera to capture video frames.
+
+
+
+(3) Define Region of Interest (ROI):
+
+a. Determine the width and height of the video frame.
+b. Create a polygonal ROI to focus lane detection on a specific area of the frame.
+
+
+
+(4) Define Kernel Size for Blurring:
+
+a. The kernel size used in Gaussian blur to reduce image noise.
+
+
+
+(5) Set Parameters for Edge Detection and Line Transform:
+
+a. Canny Edge Detection:
+     a1. Low and high thresholds to detect edges.
+b. Hough Line Transform:
+     b1. Rho (resolution of the accumulator).
+     b2. Theta (angle resolution).
+     b3. Threshold, minimum line length, and maximum line gap to filter detected lines.
+
+
+
+(6) Set Parameters for Lane Departure Alert:
+
+a. alert_count: Tracks consecutive frames without lane detection.
+b. alert_threshold: Defines when to trigger an alert.
+
+
+
+(7) Define Frame Processing Function:
+
+a. Convert the frame to grayscale.
+b. Apply Gaussian blur to reduce noise.
+c. Apply Canny edge detection.
+d. Apply ROI mask to focus on the area of interest.
+e. Detect lines using Hough transform.
+f. Draw detected lines on a blank image.
+g. Combine the lines image with the original frame.
+h. Check lane detection status and update alert count.
+i. Display a warning message and play a sound if necessary.
+j. Return the processed frame.
+
+
+
+
+(8) Process Video Frames Continuously:
+
+a. Capture and process each frame.
+b. Display the processed frame in a window.
+c. Exit the loop if the 'q' key is pressed.
+d. Release the video capture and close all OpenCV windows.
